@@ -11,7 +11,21 @@ import Foundation
 
 class MathTools{
     func fibonacci(_ number: Int) -> Int{
+        if(number == 0){
+            return 0;
+        }else if(number == 1){
+            return 1;
+        }
+        var first = 0;
+        var second = 1;
+        var pom = 1;
         
-        return 0;
+        for _ in 0...number-2{
+            pom = first + second;
+            first = second;
+            second = pom;
+        }
+        
+        return pom;
     }
 }

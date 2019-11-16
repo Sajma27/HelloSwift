@@ -12,6 +12,5 @@ class Factorization{
     func factorize(_ num: Int = 0) -> Int?{
         
         return 0;
-        
     }
 }
