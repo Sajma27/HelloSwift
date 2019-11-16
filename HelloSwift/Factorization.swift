@@ -8,9 +8,36 @@
 
 import Foundation
 
+enum EResult{
+    case prime
+    case composite(factors: [Int])
+}
+
 class Factorization{
-    func factorize(_ num: Int = 0) -> Int?{
+    
+    static func factorize(_ num: Int = 0) -> EResult?{
+        if(num <= 1){
+            return nil;
+        }
         
-        return 0;
+        var pom = num;
+        var factor = 2;
+        var factors: [Int] = [];
+        while pom > 1 && factor <= num/2{
+            if(pom%factor==0){
+                pom = pom/factor;
+                factors.append(factor);
+            }else if(factor%2 == 0){
+                factor = factor + 1;
+            }else{
+                factor = factor + 2;
+            }
+        }
+        
+        if(factors.count > 0){
+            return .composite(factors: factors)
+        }
+        
+        return .prime
     }
 }
